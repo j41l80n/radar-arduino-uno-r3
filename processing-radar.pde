@@ -22,12 +22,9 @@ void setup() {
   smooth();
   myPort = new Serial(this, "COM3", 9600); // starts the serial communication
   myPort.bufferUntil('.'); // reads the data from the serial port up to the character '.'. So actually it reads this: angle,distance.
-  //orcFont = loadFont("OCRAExtended-30.vlw");
 }
 void draw() {
-
   fill(98, 245, 31);
-  //textFont(orcFont);
   // simulating motion blur and slow fade of the moving line
   noStroke();
   fill(0, 4); 
@@ -49,7 +46,6 @@ void serialEvent (Serial myPort) { // starts reading data from the Serial Port
   index1 = data.indexOf(","); // find the character ',' and puts it into the variable "index1"
   angle= data.substring(0, index1); // read the data from position "0" to position of the variable index1 or thats the value of the angle the Arduino Board sent into the Serial Port
   distance= data.substring(index1+1, data.length()); // read the data from position "index1" to the end of the data pr thats the value of the distance
-
   // converts the String variables into Integer
   iAngle = int(angle);
   iDistance = int(distance);
@@ -61,25 +57,11 @@ void drawRadar() {
   noFill();
   strokeWeight(2);
   stroke(98, 245, 31);
-  // draws the arc lines
-  //arc(0, 0, 1800, 1800, PI, TWO_PI);
-  //arc(0, 0, 1400, 1400, PI, TWO_PI);
-  //arc(0, 0, 1000, 1000, PI, TWO_PI);
-  //arc(0, 0, 600, 600, PI, TWO_PI);
   
   arc(0, 0, 900, 900, PI, TWO_PI);
   arc(0, 0, 700, 700, PI, TWO_PI);
   arc(0, 0, 500, 500, PI, TWO_PI);
   arc(0, 0, 300, 300, PI, TWO_PI);
-  
-  // draws the angle lines
-  //line(-960, 0, 960, 0);
-  //line(0, 0, -960*cos(radians(30)), -960*sin(radians(30)));
-  //line(0, 0, -960*cos(radians(60)), -960*sin(radians(60)));
-  //line(0, 0, -960*cos(radians(90)), -960*sin(radians(90)));
-  //line(0, 0, -960*cos(radians(120)), -960*sin(radians(120)));
-  //line(0, 0, -960*cos(radians(150)), -960*sin(radians(150)));
-  //line(-960*cos(radians(30)), 0, 960, 0);
   
   //linha horizontal
   line(-480, 0, 480, 0);
