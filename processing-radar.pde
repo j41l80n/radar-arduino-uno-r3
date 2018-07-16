@@ -139,7 +139,7 @@ void drawText() { // draws the texts on the screen
   text("40cm", 1420, 640);
   text("objeto: " + noObject, width/2-360, 690);
   text("angulo: " + iAngle +" °", width/2-30, 690);
-  text("distancia: ", width/2+280, 690);
+  text("distancia: " + iDistance, width/2+280, 690);
   
   if (iDistance<40) {
     text("        " + iDistance +" cm", 1400, 1050);
