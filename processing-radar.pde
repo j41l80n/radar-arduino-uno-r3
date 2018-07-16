@@ -14,15 +14,16 @@ int index2=0;
 PFont orcFont;
 void setup() {
  size (1920, 1080);
+ printArray(Serial.list());
  smooth();
  myPort = new Serial(this,"COM3", 9600); // starts the serial communication
  myPort.bufferUntil('.'); // reads the data from the serial port up to the character '.'. So actually it reads this: angle,distance.
- orcFont = loadFont("OCRAExtended-30.vlw");
+ //orcFont = loadFont("OCRAExtended-30.vlw");
 }
 void draw() {
   
   fill(98,245,31);
-  textFont(orcFont);
+  //textFont(orcFont);
   // simulating motion blur and slow fade of the moving line
   noStroke();
   fill(0,4); 
@@ -94,10 +95,10 @@ void drawText() { // draws the texts on the screen
   
   pushMatrix();
   if(iDistance>40) {
-  noObject = "Out of Range";
+  noObject = "fora de alcance";
   }
   else {
-  noObject = "In Range";
+  noObject = "no alcance";
   }
   fill(0,0,0);
   noStroke();
@@ -109,9 +110,9 @@ void drawText() { // draws the texts on the screen
   text("30cm",1580,990);
   text("40cm",1780,990);
   textSize(40);
-  text("Object: " + noObject, 240, 1050);
-  text("Angle: " + iAngle +" °", 1050, 1050);
-  text("Distance: ", 1380, 1050);
+  text("objeto: " + noObject, 240, 1050);
+  text("angulo: " + iAngle +" °", 1050, 1050);
+  text("distancia: ", 1380, 1050);
   if(iDistance<40) {
   text("        " + iDistance +" cm", 1400, 1050);
   }
