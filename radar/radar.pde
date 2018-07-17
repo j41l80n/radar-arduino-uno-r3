@@ -81,15 +81,16 @@ void drawRadar() {
 void drawObject() {
   pushMatrix();
   //linha vermelha
-  translate(960, 650); // moves the starting coordinats to new location
+  translate(960, 650);
   strokeWeight(9);
-  stroke(255, 10, 10); // red color
-  pixsDistance = iDistance * 22.5; // covers the distance from the sensor from cm to pixels
+  stroke(255, 0, 0);
+  pixsDistance = iDistance * 12.75; // covers the distance from the sensor from cm to pixels
   // limiting the range to 40 cms
   if (iDistance < 40) {
     // draws the object according to the angle and the distance
-    line(pixsDistance*cos(radians(iAngle)), -pixsDistance*sin(radians(iAngle)), 480*cos(radians(iAngle)), -480*sin(radians(iAngle)));
-  }
+      line(pixsDistance*cos(radians(iAngle)), -pixsDistance*sin(radians(iAngle)), 480*cos(radians(iAngle)), -480*sin(radians(iAngle)));
+    //line(pixsDistance*cos(radians(iAngle)), -pixsDistance*sin(radians(iAngle)), 480*cos(radians(iAngle)), -480*sin(radians(iAngle)));  
+}
   popMatrix();
 }
 
@@ -123,9 +124,11 @@ void drawText() { // draws the texts on the screen
   text("angulo: " + iAngle +" °", width/2-30, 690);
   text("distancia: " + iDistance, width/2+280, 690);
   
-  if (iDistance<40) {
-    text("        " + iDistance +" cm", 1400, 1050);
-  }
+  println("teste iDistance: "+ iDistance);
+  println("teste pixsDistance: "+ pixsDistance);
+  //if (iDistance<40) {
+  //  text("        " + iDistance +" TESTEcm", 1400, 1050);
+  //}
   
   //textos dos angulos
   textSize(15);
