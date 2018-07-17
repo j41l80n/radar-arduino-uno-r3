@@ -20,7 +20,7 @@ void setup() {
   microServo.write(0);
 }
 void loop() {
-  for (int i = 1; i <= 180; i++) {
+  for (int i = 1; i < 180; i++) {
     microServo.write(i);
     delay(15);
     distance = calculateDistance(); // Calls a function for calculating the distance measured by the Ultrasonic sensor for each degree
@@ -41,7 +41,6 @@ void loop() {
   }
 }
 
-// Function for calculating the distance measured by the Ultrasonic sensor
 int calculateDistance() {
   digitalWrite(PINO_TRIG, LOW);
   delayMicroseconds(2);
