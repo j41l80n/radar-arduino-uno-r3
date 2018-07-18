@@ -1,12 +1,13 @@
 #include <SPI.h>
-#include <Servo.h>
+//#include <Servo.h>
+#include <VarSpeedServo.h>
 #include <hcsr04.h>
 
-#define SERVO 6
+#define SERVO 12
 #define PINO_TRIG 4
 #define PINO_ECHO 5
 
-Servo microServo;
+VarSpeedServo microServo;
 HCSR04 ultrasonic(PINO_TRIG, PINO_ECHO, 20, 4000);
 
 long duration;
@@ -17,15 +18,15 @@ void setup() {
   pinMode(PINO_TRIG, OUTPUT);
   pinMode(PINO_ECHO, INPUT);
   Serial.begin(9600);
-  microServo.attach(6);
+  microServo.attach(SERVO);
   microServo.write(0);
 }
 void loop() {
-  for (pos = microServo.read(); pos <= 180; pos += 1) {
+  for (int i = 0; i <= 179; i++) {
     Serial.print("pos: ");
-    Serial.println(pos);
+    Serial.println(i);
     
-    microServo.write(pos);
+    microServo.write(i);
     delay(10);
     
    // distance = calculateDistance(); // Calls a function for calculating the distance measured by the Ultrasonic sensor for each degree
@@ -36,7 +37,7 @@ void loop() {
   }
   
   // Repeats the previous lines from 165 to 15 degrees
-//  for (pos = microServo.read(); pos >= 0; pos -= 1) {
+//  for (int i = 18; i >= 0; i--) {
 //    microServo.write(pos);
 //    delay(10);
 //    
