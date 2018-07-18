@@ -23,6 +23,7 @@ void setup() {
   myPort = new Serial(this, "COM3", 9600); // starts the serial communication
   myPort.bufferUntil('.'); // reads the data from the serial port up to the character '.'. So actually it reads this: angle,distance.
 }
+
 void draw() {
   fill(98, 245, 31);
   // simulating motion blur and slow fade of the moving line
@@ -53,7 +54,7 @@ void serialEvent (Serial myPort) { // starts reading data from the Serial Port
 
 void drawRadar() {
   pushMatrix();
-  translate(960, 650); // moves the starting coordinats to new location
+  translate(960, 650);
   noFill();
   strokeWeight(2);
   stroke(98, 245, 31);
@@ -90,7 +91,7 @@ void drawObject() {
     // draws the object according to the angle and the distance
       line(pixsDistance*cos(radians(iAngle)), -pixsDistance*sin(radians(iAngle)), 480*cos(radians(iAngle)), -480*sin(radians(iAngle)));
     //line(pixsDistance*cos(radians(iAngle)), -pixsDistance*sin(radians(iAngle)), 480*cos(radians(iAngle)), -480*sin(radians(iAngle)));  
-}
+  }
   popMatrix();
 }
 
