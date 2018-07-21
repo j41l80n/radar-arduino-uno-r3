@@ -29,24 +29,24 @@ void loop() {
     microServo.write(i);
     delay(10);
     
-   // distance = calculateDistance(); // Calls a function for calculating the distance measured by the Ultrasonic sensor for each degree
-//    Serial.print(pos); // Sends the current degree into the Serial Port
-//    Serial.print(","); // Sends addition character right next to the previous value needed later in the Processing IDE for indexing
-//    Serial.print(distance); // Sends the distance value into the Serial Port
-//    Serial.print("."); // Sends addition character right next to the previous value needed later in the Processing IDE for indexing
+    distance = calculateDistance(); // Calls a function for calculating the distance measured by the Ultrasonic sensor for each degree
+    Serial.print(pos); // Sends the current degree into the Serial Port
+    Serial.print(","); // Sends addition character right next to the previous value needed later in the Processing IDE for indexing
+    Serial.print(distance); // Sends the distance value into the Serial Port
+    Serial.print("."); // Sends addition character right next to the previous value needed later in the Processing IDE for indexing
   }
   
   // Repeats the previous lines from 165 to 15 degrees
-//  for (int i = 18; i >= 0; i--) {
-//    microServo.write(pos);
-//    delay(10);
-//    
-//    //distance = calculateDistance();
-////    Serial.print(pos);
-////    Serial.print(",");
-////    Serial.print(distance);
-////    Serial.print(".");
-//  }
+  for (int i = 18; i >= 0; i--) {
+    microServo.write(pos);
+    delay(10);
+    
+   distance = calculateDistance();
+    Serial.print(pos);
+    Serial.print(",");
+    Serial.print(distance);
+    Serial.print(".");
+  }
 }
 
 int calculateDistance() {
