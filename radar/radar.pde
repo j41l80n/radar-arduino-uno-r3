@@ -1,7 +1,8 @@
-import processing.serial.*; // imports library for serial communication
-import java.awt.event.KeyEvent; // imports library for reading the data from the serial port
+import processing.serial.*;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
-Serial myPort; // defines Object Serial
+
+Serial myPort;
 // defubes variables
 String angle="";
 String distance="";
